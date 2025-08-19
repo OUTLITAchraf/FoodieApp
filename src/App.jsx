@@ -6,13 +6,13 @@ function App() {
 
   return (
     <>
-      <header className="bg-[#E63946] px-6 py-3 shadow-md">
+      <header className="bg-[#FF9B00] px-6 py-3 shadow-md">
         <NavBar/>
       </header>
       <main className="mx-10">
         <Home/>
       </main>
-      <footer className="bg-[#E63946] px-6 py-3 shadow-md">
+      <footer className="bg-[#FF9B00] px-6 py-3 shadow-md">
         <FooterNavBar/>
       </footer>
     </>
