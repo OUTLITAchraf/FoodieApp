@@ -1,10 +1,14 @@
+import NavBar from "./components/NavBar";
 
 function App() {
 
   return (
     <>
-      <header></header>
-      <main></main>
+      <header>
+        <NavBar/>
+      </header>
+      <main>
+      </main>
       <footer></footer>
     </>
   )
