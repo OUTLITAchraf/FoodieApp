@@ -21,9 +21,11 @@ function Home() {
 
             <div className="grid grid-cols-6 gap-4 mx-10">
                 {list.data.map((r) => (
-                    <div key={r.restaurantId} className="border py-2 px-3">
-                        <img src={r.squareImgUrl} alt={r.name} className="mt-2" />
-                        <h3 className="font-robotoslab font-semibold">{r.name.length > 20 ? r.name.slice(0, 20) + " ..." : r.name}</h3>
+                    <div key={r.restaurantId} className="border-2 border-[#FF9B00] rounded-xl py-2 px-3 hover:-translate-y-3">
+                        <a href="">
+                            <img src={r.squareImgUrl} alt={r.name} className="mt-2" />
+                        </a>
+                        <h3 className="font-robotoslab font-semibold hover:text-[#FF9B00]"><a href="">{r.name.length > 20 ? r.name.slice(0, 19) + " ..." : r.name}</a></h3>
                         <div className="flex justify-between mt-1">
                             <p className="flex gap-1 items-center">
                                 <svg
