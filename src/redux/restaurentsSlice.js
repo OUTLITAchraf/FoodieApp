@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// ✅ Async thunk to fetch restaurants
 export const fetchRestaurants = createAsyncThunk(
   "restaurants/fetchRestaurants",
   async () => {
@@ -20,7 +19,6 @@ export const fetchRestaurants = createAsyncThunk(
   }
 );
 
-// ✅ Load initial state from localStorage if exists
 const storedRestaurants = localStorage.getItem("restaurants");
 
 const restaurantSlice = createSlice({
@@ -40,7 +38,6 @@ const restaurantSlice = createSlice({
         state.loading = false;
         state.list = action.payload;
 
-        // ✅ Save to localStorage
         localStorage.setItem("restaurants", JSON.stringify(action.payload));
       })
       .addCase(fetchRestaurants.rejected, (state, action) => {
@@ -50,4 +47,5 @@ const restaurantSlice = createSlice({
   },
 });
 
+export const { clearRestaurants } = restaurantSlice.actions;
 export default restaurantSlice.reducer;
