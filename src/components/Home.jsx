@@ -10,7 +10,8 @@ function Home() {
         if (list.length === 0) {
             dispatch(fetchRestaurants());
         }
-    }, [dispatch, list.data]);
+    }, [dispatch, list]);
+    
 
     return (
         <div className="lg:p-4 mt-3">
@@ -22,11 +23,11 @@ function Home() {
             <div className="grid grid-cols-2 lg:grid-cols-6 gap-4 lg:mx-10">
                 {list.map((r,i) => (
                     <div key={i} className="border-2 border-[#FF9B00] rounded-xl py-2 px-3 hover:-translate-y-3">
-                        <a href="">
+                        <a href={`/restaurentmenu/${r.restaurantsId}`}>
                             <img src={r.squareImgUrl} alt={r.name} className="mt-2" />
                         </a>
-                        <h3 className="sm:hidden font-robotoslab font-semibold mt-1 hover:text-[#FF9B00]"><a href="">{r.name.length > 20 ? r.name.slice(0, 13) + " ..." : r.name}</a></h3>
-                        <h3 className="hidden sm:block font-robotoslab font-semibold mt-1 hover:text-[#FF9B00]"><a href="">{r.name.length > 20 ? r.name.slice(0, 19) + " ..." : r.name}</a></h3>
+                        <h3 className="sm:hidden font-robotoslab font-semibold mt-1 hover:text-[#FF9B00]"><a href={`/restaurentmenu/${r.restaurantsId}`}>{r.name.length > 20 ? r.name.slice(0, 13) + " ..." : r.name}</a></h3>
+                        <h3 className="hidden sm:block font-robotoslab font-semibold mt-1 hover:text-[#FF9B00]"><a href={`/restaurentmenu/${r.restaurantsId}`}>{r.name.length > 20 ? r.name.slice(0, 19) + " ..." : r.name}</a></h3>
                         <div className="flex justify-between mt-1">
                             <p className="flex gap-1 items-center">
                                 <svg
