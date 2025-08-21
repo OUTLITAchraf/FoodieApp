@@ -5,12 +5,14 @@ function NavBar() {
     return (
         <nav className="lg:mx-10 flex justify-between items-center">
             <div className="flex items-center">
-                <img
-                    src={FoodieAppLogo}
-                    alt="FoodieAppLogo"
-                    className="w-[60px] h-[60px] lg:w-[90px] lg:h-[90px]"
-                />
-                <h2 className="text-lg lg:text-2xl font-robotoslabbold text-white">FoodieApp</h2>
+                <a href="/">
+                    <img
+                        src={FoodieAppLogo}
+                        alt="FoodieAppLogo"
+                        className="w-[60px] h-[60px] lg:w-[90px] lg:h-[90px]"
+                    />
+                </a>
+                <a href="/" className="text-lg lg:text-2xl font-robotoslabbold text-white">FoodieApp</a>
             </div>
             <button className="flex gap-2 bg-white text-[#FF9B00] p-2 lg:p-3 rounded-lg hover:scale-105 cursor-pointer">
                 <svg
