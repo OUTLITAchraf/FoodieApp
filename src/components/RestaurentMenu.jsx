@@ -110,33 +110,31 @@ function RestaurentMenu() {
         <h2 className="text-3xl lg:text-5xl font-robotoslabbold mb-5 mt-10">
           Restaurant Menu
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mx-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:mx-5">
           {menu.map((m, i) => (
             <div key={i} className="border-2 border-[#FF9B00] p-3 rounded-lg">
               <img
                 src={m.Photo?.replace("60s", "o")}
                 alt={m.FoodName}
-                className="w-full h-[250px] object-cover"
+                className="w-full h-[150px] lg:h-[250px] object-cover"
               />
               <h3 className="text-xl font-robotoslabbold mt-2">
                 {m["Food Name"]}
               </h3>
               <div className="flex justify-between items-center mt-2">
-                <p className="text-lg font-robotoslabsemibold">
+                <p className="text-xs lg:text-lg font-robotoslabsemibold">
                   {m.Price ? m.Price : `$${Math.floor(Math.random() * (23 - 17 + 1) + 17)}.00`}
                 </p>
-                <button className="flex flex-row gap-2 border-2 border-[#FF9B00] bg-[#FF9B00] p-2 text-white hover:bg-white hover:text-[#FF9B00] rounded-xl">
+                <button className="flex flex-row gap-1 lg:gap-2 border-2 border-[#FF9B00] bg-[#FF9B00] p-2 text-white text-[9px] lg:text-base hover:bg-white hover:text-[#FF9B00] rounded-xl">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="lucide lucide-circle-plus-icon lucide-circle-plus"
+                    className="lucide lucide-circle-plus-icon lucide-circle-plus w-[13px] h-[13px] lg:w-[24px] lg:h-[24px]"
                   >
                     <circle cx="12" cy="12" r="10" />
                     <path d="M8 12h8" />
