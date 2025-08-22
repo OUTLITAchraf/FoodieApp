@@ -6,11 +6,17 @@
 }
 
 @font-face{
+  font-family: RobotoSlabSemiBold;
+  src: url("./assets/fonts/Roboto_Slab/RobotoSlab-SemiBold.ttf")
+}
+
+@font-face{
   font-family: RobotoSlab;
   src: url("./assets/fonts/Roboto_Slab/RobotoSlab-Regular.ttf")
 }
 
 @theme{
   --font-robotoslabbold: RobotoSlabBold, "sans-serif";
+  --font-robotoslabsemibold: RobotoSlabSemiBold, "sans-serif";
   --font-robotoslab:RobotoSlab, "sans-serif"
 }

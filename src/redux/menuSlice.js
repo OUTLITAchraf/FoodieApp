@@ -8,7 +8,7 @@ export const fetchMenuRestaurant = createAsyncThunk(
       method: "GET",
       url: "https://yelp-business-api.p.rapidapi.com/get_menus",
       params: {
-        business_id: "5uUs2b4bQdS3WS8z16LJKw",
+        business_id: "16ZnHpuaaBt92XWeJHCC5A",
       },
       headers: {
         "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
@@ -30,7 +30,12 @@ const menuSlice = createSlice({
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    clearMenu: (state) => {
+      state.items = [];
+      localStorage.removeItem("menurestaurant");
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchMenuRestaurant.pending, (state) => {
@@ -49,4 +54,5 @@ const menuSlice = createSlice({
   },
 });
 
+export const { clearMenu } = menuSlice.actions;
 export default menuSlice.reducer;
