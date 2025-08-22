@@ -39,7 +39,7 @@ function RestaurentMenu() {
 
   return (
     <>
-      <div className="flex flex-col lg:flex-row mt-5 ">
+      <div className="flex flex-col lg:flex-row mt-5 mx-5 lg:mx-10">
         <img
           src={restaurent.thumbnail?.photo?.photoSizeDynamic?.urlTemplate
             ?.replace("{width}", "600")
@@ -71,7 +71,7 @@ function RestaurentMenu() {
               </span>
             </p>
             <p
-              className={`flex gap-2 lg:gap-3 items-center text-base lg:text-xl font-semibold text-center ${
+              className={`flex gap-2 lg:gap-3 items-center text-base lg:text-xl font-robotoslabsemibold text-center ${
                 restaurent.currentOpenStatusText?.toLowerCase().includes("open")
                   ? "text-green-600"
                   : "text-red-600"
@@ -109,10 +109,10 @@ function RestaurentMenu() {
         </div>
       </div>
       <div>
-        <h2 className="text-3xl lg:text-5xl font-robotoslabbold mb-5 mt-10">
+        <h2 className="text-3xl lg:text-5xl font-robotoslabbold mb-5 mt-10 mx-5 lg:mx-10">
           Restaurant Menu
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:mx-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mx-5 lg:mx-15">
           {menu.map((m, i) => {
             const isAdded = basket.some((item) => item.id === i);
             return (
@@ -142,7 +142,7 @@ function RestaurentMenu() {
                       )
                     }
                     disabled={isAdded}
-                    className={`flex flex-row gap-1 lg:gap-2 border-2 p-2 text-white text-[9px] lg:text-base rounded-xl cursor-pointer ${
+                    className={`flex flex-row gap-1 lg:gap-2 border-2 p-2 font-robotoslab text-white text-[9px] lg:text-base rounded-xl cursor-pointer ${
                       isAdded
                         ? "bg-gray-400 border-gray-400 cursor-not-allowed"
                         : "bg-[#FF9B00] border-[#FF9B00] hover:bg-white hover:text-[#FF9B00]"

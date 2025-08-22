@@ -7,10 +7,10 @@ function Basket() {
 
   return (
     <div className="p-5">
-      <h2 className="text-3xl font-bold mb-4">Your Basket</h2>
+      <h2 className="text-3xl font-robotoslabbold mb-4">Your Basket</h2>
 
       {basket.length === 0 ? (
-        <p className="text-gray-500">Your basket is empty</p>
+        <p className="text-gray-500 font-robotoslab">Your basket is empty</p>
       ) : (
         <div className="space-y-4">
           {basket.map((item) => (
@@ -25,14 +25,14 @@ function Basket() {
                   className="w-16 h-16 object-cover rounded-lg"
                 />
                 <div>
-                  <h3 className="font-semibold">{item.name}</h3>
-                  <p className="text-sm text-gray-600">{item.price}</p>
+                  <h3 className="font-robotoslabsemibold">{item.name}</h3>
+                  <p className="text-sm text-gray-600 font-robotoslab">{item.price}</p>
                 </div>
               </div>
 
               <button
                 onClick={() => dispatch(removeFromBasket(item.id))}
-                className="text-red-500 hover:text-red-700 cursor-pointer"
+                className="text-red-500 hover:text-red-700 font-robotoslab cursor-pointer"
               >
                 Remove
               </button>
@@ -41,7 +41,7 @@ function Basket() {
 
           <button
             onClick={() => dispatch(clearBasket())}
-            className="mt-4 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600"
+            className="mt-4 bg-red-500 font-robotoslab text-white px-4 py-2 rounded-lg hover:bg-red-600"
           >
             Clear Basket
           </button>
