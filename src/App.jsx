@@ -11,7 +11,7 @@ function App() {
       <header className="bg-[#FF9B00] px-6 py-3 shadow-md">
         <NavBar />
       </header>
-      <main className="mx-10 mb-5">
+      <main className="mx-5 lg:mx-10 mb-5">
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/restaurentmenu/:restaurantsId" element={<RestaurentMenu />}></Route>

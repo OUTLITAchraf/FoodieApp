@@ -26,8 +26,8 @@ function Home() {
                         <a href={`/restaurentmenu/${r.restaurantsId}`}>
                             <img src={r.squareImgUrl} alt={r.name} className="mt-2" />
                         </a>
-                        <h3 className="sm:hidden font-robotoslab font-semibold mt-1 hover:text-[#FF9B00]"><a href={`/restaurentmenu/${r.restaurantsId}`}>{r.name.length > 20 ? r.name.slice(0, 13) + " ..." : r.name}</a></h3>
-                        <h3 className="hidden sm:block font-robotoslab font-semibold mt-1 hover:text-[#FF9B00]"><a href={`/restaurentmenu/${r.restaurantsId}`}>{r.name.length > 20 ? r.name.slice(0, 19) + " ..." : r.name}</a></h3>
+                        <h3 className="sm:hidden font-robotoslab font-semibold mt-1 hover:text-[#FF9B00]"><a href={`/restaurentmenu/${r.restaurantsId}`}>{r.name.length > 15 ? r.name.slice(0, 15) + " ..." : r.name}</a></h3>
+                        <h3 className="hidden sm:block font-robotoslab font-semibold mt-1 hover:text-[#FF9B00]"><a href={`/restaurentmenu/${r.restaurantsId}`}>{r.name.length > 19 ? r.name.slice(0, 19) + " ..." : r.name}</a></h3>
                         <div className="flex justify-between mt-1">
                             <p className="flex gap-1 items-center">
                                 <svg
