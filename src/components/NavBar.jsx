@@ -14,7 +14,7 @@ function NavBar() {
                 </a>
                 <a href="/" className="text-lg lg:text-2xl font-robotoslabbold text-white">FoodieApp</a>
             </div>
-            <button className="flex gap-2 bg-white text-[#FF9B00] p-2 lg:p-3 rounded-lg hover:scale-105 cursor-pointer">
+            <a href="/basket" className="flex gap-2 bg-white text-[#FF9B00] p-2 lg:p-3 rounded-lg hover:scale-105 ">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -35,8 +35,8 @@ function NavBar() {
                     <path d="m5 11 4-7" />
                     <path d="m9 11 1 9" />
                 </svg>
-                <a href="">Basket</a>
-            </button>
+                Basket
+            </a>
         </nav>
     );
 }

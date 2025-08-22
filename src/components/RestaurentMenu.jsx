@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchRestaurants } from "../redux/restaurentsSlice";
 import { fetchMenuRestaurant, clearMenu } from "../redux/menuSlice";
+import { addToBasket } from "../redux/basketSlice";
 import { useParams } from "react-router-dom";
 
 function RestaurentMenu() {
@@ -12,6 +13,7 @@ function RestaurentMenu() {
     loading: menuloading,
     error: menuerror,
   } = useSelector((state) => state.menurestaurant);
+  const basket = useSelector((state) => state.basket.items);
   const [restaurent, setRestaurent] = useState({});
   const { restaurantsId } = useParams();
 
@@ -111,40 +113,81 @@ function RestaurentMenu() {
           Restaurant Menu
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:mx-5">
-          {menu.map((m, i) => (
-            <div key={i} className="border-2 border-[#FF9B00] p-3 rounded-lg">
-              <img
-                src={m.Photo?.replace("60s", "o")}
-                alt={m.FoodName}
-                className="w-full h-[150px] lg:h-[250px] object-cover"
-              />
-              <h3 className="text-xl font-robotoslabbold mt-2">
-                {m["Food Name"]}
-              </h3>
-              <div className="flex justify-between items-center mt-2">
-                <p className="text-xs lg:text-lg font-robotoslabsemibold">
-                  {m.Price ? m.Price : `$${Math.floor(Math.random() * (23 - 17 + 1) + 17)}.00`}
-                </p>
-                <button className="flex flex-row gap-1 lg:gap-2 border-2 border-[#FF9B00] bg-[#FF9B00] p-2 text-white text-[9px] lg:text-base hover:bg-white hover:text-[#FF9B00] rounded-xl">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-circle-plus-icon lucide-circle-plus w-[13px] h-[13px] lg:w-[24px] lg:h-[24px]"
+          {menu.map((m, i) => {
+            const isAdded = basket.some((item) => item.id === i);
+            return (
+              <div key={i} className="border-2 border-[#FF9B00] p-3 rounded-lg">
+                <img
+                  src={m.Photo?.replace("60s", "o")}
+                  alt={m.FoodName}
+                  className="w-full h-[150px] lg:h-[250px] object-cover"
+                />
+                <h3 className="text-xl font-robotoslabbold mt-2">
+                  {m["Food Name"]}
+                </h3>
+                <div className="flex justify-between items-center mt-2">
+                  <p className="text-xs lg:text-lg font-robotoslabsemibold">
+                    {m.Price ? m.Price : "$20.00"}
+                  </p>
+                  <button
+                    onClick={() =>
+                      !isAdded &&
+                      dispatch(
+                        addToBasket({
+                          id: i,
+                          name: m["Food Name"],
+                          price: m.Price || "$20.00",
+                          photo: m.Photo?.replace("60s", "o"),
+                        })
+                      )
+                    }
+                    disabled={isAdded}
+                    className={`flex flex-row gap-1 lg:gap-2 border-2 p-2 text-white text-[9px] lg:text-base rounded-xl cursor-pointer ${
+                      isAdded
+                        ? "bg-gray-400 border-gray-400 cursor-not-allowed"
+                        : "bg-[#FF9B00] border-[#FF9B00] hover:bg-white hover:text-[#FF9B00]"
+                    }`}
                   >
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M8 12h8" />
-                    <path d="M12 8v8" />
-                  </svg>
-                  Add Basket
-                </button>
+                    {isAdded ? (
+                      <>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="lucide lucide-circle-check-icon lucide-circle-check w-[13px] h-[13px] lg:w-[24px] lg:h-[24px]"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="m9 12 2 2 4-4" />
+                        </svg> Added
+                      </>
+                    ) : (
+                      <>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="lucide lucide-circle-plus-icon lucide-circle-plus w-[13px] h-[13px] lg:w-[24px] lg:h-[24px]"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M8 12h8" />
+                          <path d="M12 8v8" />
+                        </svg>
+                        Add Basket
+                      </>
+                    )}
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </>

@@ -3,6 +3,7 @@ import FooterNavBar from "./components/FooterNavBar";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import RestaurentMenu from "./components/RestaurentMenu";
+import Basket from "./components/Basket";
 
 function App() {
 
@@ -15,8 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/restaurentmenu/:restaurantsId" element={<RestaurentMenu />}></Route>
+          <Route path="/basket" element={<Basket />}/>
         </Routes>
-        
       </main>
       <footer className="bg-[#FF9B00] px-6 py-3 shadow-md">
         <FooterNavBar />
