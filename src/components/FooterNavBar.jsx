@@ -10,12 +10,12 @@ function FooterNavBar() {
                     alt="FoodieAppLogo"
                     className="w-[60px] h-[60px] lg:w-[120px] lg:h-[120px]"
                 />
-                <h2 className="text-lg lg:text-3xl font-robotoslabbold text-white">FoodieApp</h2>
+                <h2 className="text-xs lg:text-3xl font-robotoslabbold text-white">FoodieApp</h2>
             </div>
-            <p className='mt-4 sm:mt-6 md:mt-10 text-sm sm:text-lg text-white'>&copy; 2025 FoodieApp</p>
-            <div className="flex flex-row sm:flex-col gap-2 sm:gap-4 mt-2">
-                <p className="text-sm sm:text-lg text-white">Privacy Policy</p>
-                <p className="text-sm sm:text-lg text-white">Terms of us</p>
+            <p className='mt-4 sm:mt-6 md:mt-10 text-xs sm:text-lg text-white'>&copy; 2025 FoodieApp</p>
+            <div className="flex flex-col gap-2 sm:gap-4 mt-2">
+                <p className="text-xs  sm:text-lg text-white">Privacy Policy</p>
+                <p className="text-xs  sm:text-lg text-white">Terms of us</p>
             </div>
 
         </div>
